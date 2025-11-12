@@ -1,0 +1,15 @@
+runtime: php82
+env_variables:
+  MYSQL_HOST: "35.188.13.62"
+  MYSQL_USER: "root"
+  MYSQL_PASSWORD: "XXXXXX"
+handlers:
+- url: /
+  script: index.php
+# Serve images as static resources.
+- url: /(.+\.(gif|png|jpg))$
+  static_files: \1
+  upload: .+\.(gif|png|jpg)$
+# Serve php scripts.
+- url: /(.+\.php)$
+  script: \1
